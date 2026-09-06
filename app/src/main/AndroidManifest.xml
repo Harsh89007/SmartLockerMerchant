@@ -35,6 +35,7 @@
         <activity android:name=".AddCustomerActivity" android:exported="false" />
         <activity android:name=".CustomerListActivity" android:exported="false" />
         <activity android:name=".CustomerDetailControlActivity" android:exported="false" />
-
+        <activity android:name=".FrpAccountsActivity" android:exported="false" />
+        
     </application>
 </manifest>
