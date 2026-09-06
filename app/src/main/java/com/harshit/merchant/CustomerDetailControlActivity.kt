@@ -10,41 +10,50 @@ import com.google.firebase.database.FirebaseDatabase
 class CustomerDetailControlActivity : AppCompatActivity() {
 
     private val databaseRef = FirebaseDatabase.getInstance().getReference("Customers")
+    private val customerImei = "DEMO_IMEI_12345" // इसे हम बाद में डायनामिक करेंगे
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_customer_detail_control)
 
-        val customerImei = intent.getStringExtra("CUSTOMER_IMEI") ?: "DEMO_IMEI"
+        // Advance Controls
+        setupSwitch(R.id.switchLock, "isDeviceLocked")
+        setupSwitch(R.id.switchUnlock, "isUnlocked")
+        setupSwitch(R.id.switchWarningAudio, "warningAudio")
+        setupSwitch(R.id.switchGetLocation, "getLocation")
 
-        val switchDeviceLock = findViewById<Switch>(R.id.switchDeviceLock)
-        val switchAppLock = findViewById<Switch>(R.id.switchAppLock)
+        // Phone Controls
+        setupSwitch(R.id.switchCamera, "cameraControl")
+        setupSwitch(R.id.switchOutgoingCalls, "outgoingCalls")
+        setupSwitch(R.id.switchFileTransfer, "fileTransfer")
+        setupSwitch(R.id.switchAppInstallation, "appInstallation")
+
+        // App Controls
+        setupSwitch(R.id.switchWhatsapp, "whatsappLock")
+        setupSwitch(R.id.switchTelegram, "telegramLock")
+        setupSwitch(R.id.switchChrome, "chromeLock")
+        setupSwitch(R.id.switchYoutube, "youtubeLock")
+        setupSwitch(R.id.switchInstagram, "instagramLock")
+        setupSwitch(R.id.switchPhonepe, "phonepeLock")
+
+        // Uninstall Button
         val btnUninstallSystem = findViewById<Button>(R.id.btnUninstallSystem)
-
-        // 1. Device Lock / Unlock
-        switchDeviceLock?.setOnCheckedChangeListener { _, isChecked ->
-            databaseRef.child(customerImei).child("isDeviceLocked").setValue(isChecked)
-            databaseRef.child(customerImei).child("status").setValue(if (isChecked) "Locked" else "Unlocked")
-            Toast.makeText(this, "Device Status Updated", Toast.LENGTH_SHORT).show()
-        }
-
-        // 2. App Lock (YouTube / WhatsApp etc)
-        switchAppLock?.setOnCheckedChangeListener { _, isChecked ->
-            databaseRef.child(customerImei).child("isYoutubeLocked").setValue(isChecked)
-            Toast.makeText(this, "App Lock Updated", Toast.LENGTH_SHORT).show()
-        }
-
-        // 3. UNINSTALL BUTTON (ओनरशिप छोड़ना और लिस्ट से हटाना)
-        btnUninstallSystem?.setOnClickListener {
-            // कमान भेजना ताकि क्लाइंट ऐप ओनरशिप छोड़ दे
-            databaseRef.child(customerImei).child("uninstallRequested").setValue(true).addOnSuccessListener {
-                // फायरबेस से भी इस कस्टमर का डेटा डिलीट कर देना ताकि लिस्ट से गायब हो जाए
-                databaseRef.child(customerImei).removeValue().addOnSuccessListener {
-                    Toast.makeText(this, "डिवाइस अनइंस्टॉल हो गया और लिस्ट से हटा दिया गया!", Toast.LENGTH_LONG).show()
-                    finish() // वापस लिस्ट पर लौट जाएं
+        btnUninstallSystem.setOnClickListener {
+            databaseRef.child(customerImei).child("uninstallRequested").setValue(true)
+                .addOnSuccessListener {
+                    databaseRef.child(customerImei).removeValue().addOnSuccessListener {
+                        Toast.makeText(this, "डिवाइस अनइंस्टॉल और लिस्ट से रिमूव कर दिया गया!", Toast.LENGTH_LONG).show()
+                        finish()
+                    }
                 }
-            }
+        }
+    }
+
+    private fun setupSwitch(switchId: Int, firebaseKey: String) {
+        val switch = findViewById<Switch>(switchId)
+        switch?.setOnCheckedChangeListener { _, isChecked ->
+            databaseRef.child(customerImei).child(firebaseKey).setValue(isChecked)
+            Toast.makeText(this, "$firebaseKey: $isChecked", Toast.LENGTH_SHORT).show()
         }
     }
 }
-
