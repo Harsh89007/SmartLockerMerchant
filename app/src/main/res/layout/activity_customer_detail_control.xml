@@ -12,106 +12,180 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Edit Customer Profile"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimary"
-            android:layout_marginBottom="16dp"/>
-
-        <!-- Photo Upload Section -->
+        <!-- Top Header Sync Box -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:background="@color/white"
+            android:padding="12dp"
             android:gravity="center_vertical"
+            android:orientation="horizontal"
             android:layout_marginBottom="16dp">
-            <ImageView
-                android:id="@+id/imgCustomerPhoto"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:background="#DDDDDD"
-                android:src="@android:drawable/ic_menu_camera"
-                android:scaleType="centerCrop"/>
-            <Button
-                android:id="@+id/btnUploadPhoto"
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LAST SYNC DATE"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp"/>
+            <TextView
+                android:id="@+id/tvLastSync"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add Photo"
-                android:layout_marginStart="16dp"/>
+                android:text="01 Sep 2026 01:52 PM"
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
         </LinearLayout>
 
-        <!-- Customer Form -->
-        <EditText
-            android:id="@+id/etCustomerName"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="Customer Name"
-            android:background="@color/white"
-            android:padding="12dp"
-            android:layout_marginBottom="12dp"/>
-            
-        <EditText
-            android:id="@+id/etCustomerMobile"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="Mobile Number"
-            android:inputType="phone"
-            android:background="@color/white"
-            android:padding="12dp"
-            android:layout_marginBottom="12dp"/>
-
-        <EditText
-            android:id="@+id/etCustomerEmail"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="Email ID"
-            android:inputType="textEmailAddress"
-            android:background="@color/white"
-            android:padding="12dp"
-            android:layout_marginBottom="16dp"/>
-
-        <Button
-            android:id="@+id/btnSaveProfile"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="Save Customer Details"
-            android:backgroundTint="@color/green_success"
-            android:textColor="@color/white"
-            android:layout_marginBottom="24dp"/>
-
-        <!-- Divider -->
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="#D1D1D1"
-            android:layout_marginBottom="24dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Device Control Panel"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/red_danger"
-            android:layout_marginBottom="16dp"/>
-
-        <!-- MDM Control Switches -->
+        <!-- USER INFO CARD -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp">
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="USER INFO"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- Profile Circle Image & Name -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="16dp">
+                    
+                    <ImageView
+                        android:id="@+id/imgCustomerPhoto"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:background="#DDDDDD"
+                        android:src="@android:drawable/ic_menu_camera"
+                        android:scaleType="centerCrop"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="16dp"
+                        android:orientation="vertical">
+                        
+                        <TextView
+                            android:id="@+id/tvProfileName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Name: Priyanka"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorTextPrimary"
+                            android:textSize="16sp"/>
+                        <TextView
+                            android:id="@+id/tvProfileLoanId"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Loan Id: 163659925"
+                            android:textColor="@color/colorTextSecondary"
+                            android:textSize="14sp"
+                            android:layout_marginTop="4dp"/>
+                        <TextView
+                            android:id="@+id/tvProfileImei"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="IMEI: 862144082064232"
+                            android:textColor="@color/colorTextSecondary"
+                            android:textSize="12sp"
+                            android:layout_marginTop="2dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:id="@+id/tvProfilePhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Phone: 8171430180"
+                    android:textSize="14sp"
+                    android:textColor="@color/colorTextPrimary"
+                    android:padding="4dp"/>
+                <TextView
+                    android:id="@+id/tvProfileEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Email: vk2605959@gmail.com"
+                    android:textSize="14sp"
+                    android:textColor="@color/colorTextPrimary"
+                    android:padding="4dp"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- DEVICE INFO CARD -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp">
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:background="@color/white">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Device Info"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="8dp"/>
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Manufacturer: OPPO" android:textSize="14sp" android:padding="2dp"/>
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Model: CPH2823" android:textSize="14sp" android:padding="2dp"/>
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Android Version: Android 15" android:textSize="14sp" android:padding="2dp"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- CONTROLS & SWITCHES -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Advance Controls &amp; App Locks"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            android:layout_marginBottom="12dp"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
             app:cardCornerRadius="12dp">
+            
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:background="@color/white"
-                android:padding="16dp">
+                android:padding="12dp">
 
-                <!-- Device Lock/Unlock -->
                 <Switch
                     android:id="@+id/switchDeviceLock"
                     android:layout_width="match_parent"
@@ -119,53 +193,32 @@
                     android:text="Full Device Lock"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:padding="12dp"/>
+                    android:padding="10dp"/>
                 <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE"/>
 
-                <!-- App Lock (Includes YouTube) -->
                 <Switch
                     android:id="@+id/switchAppLock"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="App Lock (YouTube, etc.)"
+                    android:text="App Lock (YouTube, WhatsApp, etc.)"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:padding="12dp"/>
-                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE"/>
-
-                <!-- Call Lock -->
-                <Switch
-                    android:id="@+id/switchCallLock"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="System Outgoing Call Lock"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:padding="12dp"/>
-                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE"/>
-
-                <!-- SIM Lock -->
-                <Switch
-                    android:id="@+id/switchSimLock"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="SIM Lock"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:padding="12dp"/>
-
+                    android:padding="10dp"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Uninstall Option -->
+        <!-- UNINSTALL BUTTON -->
         <Button
             android:id="@+id/btnUninstallSystem"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:text="Uninstall System (Remove MDM)"
+            android:text="Uninstall (Remove Device Ownership)"
             android:backgroundTint="#8B0000"
             android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold"
             android:layout_marginBottom="30dp"/>
 
     </LinearLayout>
 </ScrollView>
+
