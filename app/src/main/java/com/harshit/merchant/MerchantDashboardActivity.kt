@@ -30,9 +30,10 @@ class MerchantDashboardActivity : AppCompatActivity() {
         }
 
         cardFrpAccounts.setOnClickListener {
-            // ये वाली स्क्रीन भी हम आगे बनाएंगे
-            Toast.makeText(this, "FRP Accounts खुल रहा है...", Toast.LENGTH_SHORT).show()
+    val intent = Intent(this, FrpAccountsActivity::class.java)
+    startActivity(intent)
         }
+        
 
         cardSupport.setOnClickListener {
             Toast.makeText(this, "Support पेज जल्द उपलब्ध होगा", Toast.LENGTH_SHORT).show()
