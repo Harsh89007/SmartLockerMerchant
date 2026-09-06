@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Device Setup Wizard"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:gravity="center"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Step 1: Test DPC Setup -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:background="@color/white">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Step 1: Setup Device Owner"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="वेलकम स्क्रीन पर 6 बार टैप करें, वाई-फाई जोड़ें और यह QR स्कैन करके Test DPC सेटअप करें।"
+                    android:textColor="@color/colorTextSecondary"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="12dp"/>
+                
+                <ImageView
+                    android:id="@+id/imgStep1Qr"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    android:background="#EEEEEE"/>
+                <Button
+                    android:id="@+id/btnShowStep1Qr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Show Test DPC QR"
+                    android:layout_marginTop="8dp"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Step 2: Client App Link Generator -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:background="@color/white">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Step 2: Client App Download QR"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="यहाँ अपने क्लाइन्ट ऐप का लिंक डालें और QR जनरेट करें।"
+                    android:textColor="@color/colorTextSecondary"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="8dp"/>
+                
+                <EditText
+                    android:id="@+id/etClientAppLink"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:hint="Paste APK Link Here"
+                    android:background="@color/colorBackground"
+                    android:padding="8dp"
+                    android:layout_marginBottom="8dp"/>
+                <Button
+                    android:id="@+id/btnGenerateLinkQr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Generate QR"/>
+                    
+                <ImageView
+                    android:id="@+id/imgStep2Qr"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="12dp"
+                    android:visibility="gone"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Step 3: Pairing QR & OK Button -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:background="@color/white">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Step 3: Scan &amp; Pair Device"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="क्लाइन्ट ऐप सेटअप होने के बाद, कस्टमर के फोन से इस QR को स्कैन करें ताकि डिवाइस सिंक हो जाए।"
+                    android:textColor="@color/colorTextSecondary"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- यह 3rd QR है जो क्लाइन्ट ऐप स्कैन करेगा -->
+                <ImageView
+                    android:id="@+id/imgStep3PairingQr"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="16dp"
+                    android:background="#EEEEEE"/>
+                
+                <Button
+                    android:id="@+id/btnOkDone"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:text="OK"
+                    android:backgroundTint="@color/green_success"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</ScrollView>
+
