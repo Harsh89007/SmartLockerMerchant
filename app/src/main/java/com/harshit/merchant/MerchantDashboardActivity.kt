@@ -24,11 +24,11 @@ class MerchantDashboardActivity : AppCompatActivity() {
             startActivity(Intent(this, AddCustomerActivity::class.java))
         }
 
-        cardCustomerList.setOnClickListener {
-            // ये वाली स्क्रीन हम आगे बनाएंगे
-            Toast.makeText(this, "Customer List खुल रही है...", Toast.LENGTH_SHORT).show()
-        }
-
+                cardCustomerList.setOnClickListener {
+            val intent = Intent(this, CustomerListActivity::class.java)
+            startActivity(intent)
+                }
+                
         cardFrpAccounts.setOnClickListener {
     val intent = Intent(this, FrpAccountsActivity::class.java)
     startActivity(intent)
