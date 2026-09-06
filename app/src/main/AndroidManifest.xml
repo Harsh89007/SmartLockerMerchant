@@ -24,8 +24,13 @@
             </intent-filter>
         </activity>
 
+        <!-- ऑथेंटिकेशन और M-PIN एक्टिविटीज़ -->
+        <activity android:name=".SignUpActivity" android:exported="false" />
         <activity android:name=".LoginActivity" android:exported="false" />
+        <activity android:name=".SetMpinActivity" android:exported="false" />
         <activity android:name=".EnterMpinActivity" android:exported="false" />
+        
+        <!-- डैशबोर्ड और कंट्रोल्स -->
         <activity android:name=".MerchantDashboardActivity" android:exported="false" />
         <activity android:name=".AddCustomerActivity" android:exported="false" />
         <activity android:name=".CustomerListActivity" android:exported="false" />
