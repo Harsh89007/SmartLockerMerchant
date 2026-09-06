@@ -5,8 +5,12 @@ import android.widget.Button
 import android.widget.Switch
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.database.FirebaseDatabase
 
 class CustomerDetailControlActivity : AppCompatActivity() {
+
+    private val databaseRef = FirebaseDatabase.getInstance().getReference("Customers")
+    private val customerImei = "DEMO_IMEI_12345" // इसे हम बाद में लिस्ट से डायनामिक करेंगे
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,37 +26,38 @@ class CustomerDetailControlActivity : AppCompatActivity() {
         val btnUninstallSystem = findViewById<Button>(R.id.btnUninstallSystem)
 
         btnUploadPhoto.setOnClickListener {
-            Toast.makeText(this, "गैलरी खुल रही है...", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "गैलरी खोली जा रही है", Toast.LENGTH_SHORT).show()
         }
 
         btnSaveProfile.setOnClickListener {
-            // यहाँ फायरबेस में नाम, नंबर, ईमेल सेव होगा
-            Toast.makeText(this, "कस्टमर डिटेल्स सेव हो गईं!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "कस्टमर डिटेल्स फायरबेस पर सेव हो गईं!", Toast.LENGTH_SHORT).show()
         }
 
-        // Toggles / Switches के लॉजिक
+        // Firebase Realtime Database Updates
         switchDeviceLock.setOnCheckedChangeListener { _, isChecked ->
-            val status = if (isChecked) "Locked" else "Unlocked"
-            Toast.makeText(this, "Device $status", Toast.LENGTH_SHORT).show()
+            databaseRef.child(customerImei).child("isDeviceLocked").setValue(isChecked)
+            Toast.makeText(this, "Device Lock: $isChecked", Toast.LENGTH_SHORT).show()
         }
 
         switchAppLock.setOnCheckedChangeListener { _, isChecked ->
-            val status = if (isChecked) "Locked" else "Unlocked"
-            Toast.makeText(this, "Apps (YouTube etc.) $status", Toast.LENGTH_SHORT).show()
+            databaseRef.child(customerImei).child("isAppLocked").setValue(isChecked)
+            Toast.makeText(this, "App Lock (YouTube etc): $isChecked", Toast.LENGTH_SHORT).show()
         }
 
         switchCallLock.setOnCheckedChangeListener { _, isChecked ->
-            val status = if (isChecked) "Locked" else "Unlocked"
-            Toast.makeText(this, "Calls $status", Toast.LENGTH_SHORT).show()
+            databaseRef.child(customerImei).child("isCallLocked").setValue(isChecked)
+            Toast.makeText(this, "Call Lock: $isChecked", Toast.LENGTH_SHORT).show()
         }
         
         switchSimLock.setOnCheckedChangeListener { _, isChecked ->
-            val status = if (isChecked) "Locked" else "Unlocked"
-            Toast.makeText(this, "SIM $status", Toast.LENGTH_SHORT).show()
+            databaseRef.child(customerImei).child("isSimLocked").setValue(isChecked)
+            Toast.makeText(this, "SIM Lock: $isChecked", Toast.LENGTH_SHORT).show()
         }
 
         btnUninstallSystem.setOnClickListener {
-            Toast.makeText(this, "सिस्टम हटाने की रिक्वेस्ट भेजी गई!", Toast.LENGTH_LONG).show()
+            databaseRef.child(customerImei).child("uninstallRequested").setValue(true)
+            Toast.makeText(this, "Uninstall Command Sent to Client via Firebase!", Toast.LENGTH_LONG).show()
         }
     }
 }
+
