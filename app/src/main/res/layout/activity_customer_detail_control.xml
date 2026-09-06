@@ -12,198 +12,113 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Top Header Sync Box -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:padding="12dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:layout_marginBottom="16dp">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="LAST SYNC DATE"
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimary"
-                android:textSize="14sp"/>
-            <TextView
-                android:id="@+id/tvLastSync"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="01 Sep 2026 01:52 PM"
-                android:textColor="@color/colorTextPrimary"
-                android:textSize="14sp"
-                android:textStyle="bold"/>
-        </LinearLayout>
-
-        <!-- USER INFO CARD -->
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="2dp">
-            
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp"
-                android:background="@color/white">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="USER INFO"
-                    android:gravity="center"
-                    android:textStyle="bold"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="16sp"
-                    android:layout_marginBottom="12dp"/>
-
-                <!-- Profile Circle Image & Name -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginBottom="16dp">
-                    
-                    <ImageView
-                        android:id="@+id/imgCustomerPhoto"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:background="#DDDDDD"
-                        android:src="@android:drawable/ic_menu_camera"
-                        android:scaleType="centerCrop"/>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginStart="16dp"
-                        android:orientation="vertical">
-                        
-                        <TextView
-                            android:id="@+id/tvProfileName"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Name: Priyanka"
-                            android:textStyle="bold"
-                            android:textColor="@color/colorTextPrimary"
-                            android:textSize="16sp"/>
-                        <TextView
-                            android:id="@+id/tvProfileLoanId"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Loan Id: 163659925"
-                            android:textColor="@color/colorTextSecondary"
-                            android:textSize="14sp"
-                            android:layout_marginTop="4dp"/>
-                        <TextView
-                            android:id="@+id/tvProfileImei"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="IMEI: 862144082064232"
-                            android:textColor="@color/colorTextSecondary"
-                            android:textSize="12sp"
-                            android:layout_marginTop="2dp"/>
-                    </LinearLayout>
-                </LinearLayout>
-
-                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginBottom="8dp"/>
-
-                <TextView
-                    android:id="@+id/tvProfilePhone"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Phone: 8171430180"
-                    android:textSize="14sp"
-                    android:textColor="@color/colorTextPrimary"
-                    android:padding="4dp"/>
-                <TextView
-                    android:id="@+id/tvProfileEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Email: vk2605959@gmail.com"
-                    android:textSize="14sp"
-                    android:textColor="@color/colorTextPrimary"
-                    android:padding="4dp"/>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-        <!-- DEVICE INFO CARD -->
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="2dp">
-            
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp"
-                android:background="@color/white">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Device Info"
-                    android:textStyle="bold"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="16sp"
-                    android:layout_marginBottom="8dp"/>
-                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Manufacturer: OPPO" android:textSize="14sp" android:padding="2dp"/>
-                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Model: CPH2823" android:textSize="14sp" android:padding="2dp"/>
-                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Android Version: Android 15" android:textSize="14sp" android:padding="2dp"/>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-        <!-- CONTROLS & SWITCHES -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Advance Controls &amp; App Locks"
+            android:text="Device and App Control"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/colorPrimary"
-            android:textSize="18sp"
-            android:layout_marginBottom="12dp"/>
+            android:gravity="center"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Advance Controls Section -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Advance Controls"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="12dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/white"
+                android:padding="8dp">
+
+                <Switch android:id="@+id/switchLock" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Lock Device" android:padding="12dp" android:textSize="16sp"/>
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE"/>
+                <Switch android:id="@+id/switchUnlock" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Unlock Device" android:padding="12dp" android:textSize="16sp"/>
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE"/>
+                <Switch android:id="@+id/switchWarningAudio" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Warning Audio" android:padding="12dp" android:textSize="16sp"/>
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE"/>
+                <Switch android:id="@+id/switchGetLocation" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Get Location" android:padding="12dp" android:textSize="16sp"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Phone Controls Section -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Phone Controls"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="12dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/white"
+                android:padding="8dp">
+
+                <Switch android:id="@+id/switchCamera" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Camera Control" android:padding="12dp" android:textSize="16sp"/>
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE"/>
+                <Switch android:id="@+id/switchOutgoingCalls" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Outgoing Calls" android:padding="12dp" android:textSize="16sp"/>
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE"/>
+                <Switch android:id="@+id/switchFileTransfer" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="File Transfer" android:padding="12dp" android:textSize="16sp"/>
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE"/>
+                <Switch android:id="@+id/switchAppInstallation" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="App Installation" android:padding="12dp" android:textSize="16sp"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- App Controls Section -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="App Controls (Locks)"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp"/>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             app:cardCornerRadius="12dp">
-            
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:background="@color/white"
-                android:padding="12dp">
+                android:padding="8dp">
 
-                <Switch
-                    android:id="@+id/switchDeviceLock"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Full Device Lock"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:padding="10dp"/>
+                <Switch android:id="@+id/switchWhatsapp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="WhatsApp Lock" android:padding="12dp" android:textSize="16sp"/>
                 <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE"/>
-
-                <Switch
-                    android:id="@+id/switchAppLock"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="App Lock (YouTube, WhatsApp, etc.)"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:padding="10dp"/>
+                <Switch android:id="@+id/switchTelegram" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Telegram Lock" android:padding="12dp" android:textSize="16sp"/>
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE"/>
+                <Switch android:id="@+id/switchChrome" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Chrome Lock" android:padding="12dp" android:textSize="16sp"/>
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE"/>
+                <Switch android:id="@+id/switchYoutube" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Youtube Lock" android:padding="12dp" android:textSize="16sp"/>
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE"/>
+                <Switch android:id="@+id/switchInstagram" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Instagram Lock" android:padding="12dp" android:textSize="16sp"/>
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE"/>
+                <Switch android:id="@+id/switchPhonepe" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="PhonePe Lock" android:padding="12dp" android:textSize="16sp"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -212,10 +127,10 @@
             android:id="@+id/btnUninstallSystem"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:text="Uninstall (Remove Device Ownership)"
+            android:text="Uninstall"
             android:backgroundTint="#8B0000"
             android:textColor="@color/white"
-            android:textSize="15sp"
+            android:textSize="16sp"
             android:textStyle="bold"
             android:layout_marginBottom="30dp"/>
 
