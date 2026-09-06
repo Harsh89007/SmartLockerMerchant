@@ -1,41 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.harshit.merchant">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!-- Permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@android:drawable/sym_def_app_icon"
         android:label="Smart Locker Merchant"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@android:drawable/sym_def_app_icon"
         android:supportsRtl="true"
-        android:theme="@style/Theme.SmartMerchant">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
-        <!-- Splash / Entry Point -->
-        <activity
-            android:name=".SplashActivity"
-            android:exported="true">
+        <!-- Activities -->
+        <activity android:name=".SplashActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <!-- ऑथेंटिकेशन और M-PIN एक्टिविटीज़ -->
         <activity android:name=".SignUpActivity" android:exported="false" />
         <activity android:name=".LoginActivity" android:exported="false" />
         <activity android:name=".SetMpinActivity" android:exported="false" />
         <activity android:name=".EnterMpinActivity" android:exported="false" />
-        
-        <!-- डैशबोर्ड और कंट्रोल्स -->
         <activity android:name=".MerchantDashboardActivity" android:exported="false" />
         <activity android:name=".AddCustomerActivity" android:exported="false" />
         <activity android:name=".CustomerListActivity" android:exported="false" />
         <activity android:name=".CustomerDetailControlActivity" android:exported="false" />
         <activity android:name=".FrpAccountsActivity" android:exported="false" />
-        
+
     </application>
+
 </manifest>
