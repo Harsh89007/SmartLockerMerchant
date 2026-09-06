@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Edit Customer Profile"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Photo Upload Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+            <ImageView
+                android:id="@+id/imgCustomerPhoto"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="#DDDDDD"
+                android:src="@android:drawable/ic_menu_camera"
+                android:scaleType="centerCrop"/>
+            <Button
+                android:id="@+id/btnUploadPhoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add Photo"
+                android:layout_marginStart="16dp"/>
+        </LinearLayout>
+
+        <!-- Customer Form -->
+        <EditText
+            android:id="@+id/etCustomerName"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Customer Name"
+            android:background="@color/white"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp"/>
+            
+        <EditText
+            android:id="@+id/etCustomerMobile"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Mobile Number"
+            android:inputType="phone"
+            android:background="@color/white"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp"/>
+
+        <EditText
+            android:id="@+id/etCustomerEmail"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Email ID"
+            android:inputType="textEmailAddress"
+            android:background="@color/white"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"/>
+
+        <Button
+            android:id="@+id/btnSaveProfile"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Save Customer Details"
+            android:backgroundTint="@color/green_success"
+            android:textColor="@color/white"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#D1D1D1"
+            android:layout_marginBottom="24dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Device Control Panel"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/red_danger"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- MDM Control Switches -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:cardCornerRadius="12dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/white"
+                android:padding="16dp">
+
+                <!-- Device Lock/Unlock -->
+                <Switch
+                    android:id="@+id/switchDeviceLock"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Full Device Lock"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:padding="12dp"/>
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE"/>
+
+                <!-- App Lock (Includes YouTube) -->
+                <Switch
+                    android:id="@+id/switchAppLock"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="App Lock (YouTube, etc.)"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:padding="12dp"/>
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE"/>
+
+                <!-- Call Lock -->
+                <Switch
+                    android:id="@+id/switchCallLock"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="System Outgoing Call Lock"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:padding="12dp"/>
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE"/>
+
+                <!-- SIM Lock -->
+                <Switch
+                    android:id="@+id/switchSimLock"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="SIM Lock"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:padding="12dp"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Uninstall Option -->
+        <Button
+            android:id="@+id/btnUninstallSystem"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="Uninstall System (Remove MDM)"
+            android:backgroundTint="#8B0000"
+            android:textColor="@color/white"
+            android:layout_marginBottom="30dp"/>
+
+    </LinearLayout>
+</ScrollView>
