@@ -12,66 +12,74 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- 1. CUSTOMER PROFILE EDIT SECTION -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Edit Customer Profile"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="#1A237E"
+            android:textColor="#0F2445"
             android:layout_marginBottom="12dp"/>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="20dp"
             app:cardCornerRadius="12dp"
             app:cardElevation="2dp">
-            
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="16dp"
-                android:background="@color/white">
+                android:background="#FFFFFF">
 
-                <LinearLayout
+                <EditText
+                    android:id="@+id/etCustomerName"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginBottom="12dp">
-                    <ImageView
-                        android:id="@+id/imgCustomerPhoto"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:background="#DDDDDD"
-                        android:src="@android:drawable/ic_menu_camera"
-                        android:scaleType="centerCrop"/>
-                    <Button
-                        android:id="@+id/btnUploadPhoto"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Add Photo"
-                        android:layout_marginStart="16dp"/>
-                </LinearLayout>
+                    android:layout_height="48dp"
+                    android:hint="Customer Name"
+                    android:background="#F5F5F5"
+                    android:padding="10dp"
+                    android:layout_marginBottom="8dp"/>
 
-                <EditText android:id="@+id/etCustomerName" android:layout_width="match_parent" android:layout_height="50dp" android:hint="Customer Name" android:background="#F5F5F5" android:padding="12dp" android:layout_marginBottom="8dp"/>
-                <EditText android:id="@+id/etCustomerMobile" android:layout_width="match_parent" android:layout_height="50dp" android:hint="Mobile Number" android:inputType="phone" android:background="#F5F5F5" android:padding="12dp" android:layout_marginBottom="8dp"/>
-                <EditText android:id="@+id/etCustomerEmail" android:layout_width="match_parent" android:layout_height="50dp" android:hint="Email ID" android:inputType="textEmailAddress" android:background="#F5F5F5" android:padding="12dp" android:layout_marginBottom="12dp"/>
-                
-                <Button android:id="@+id/btnSaveProfile" android:layout_width="match_parent" android:layout_height="50dp" android:text="Save Details" android:backgroundTint="#4CAF50" android:textColor="@color/white"/>
+                <EditText
+                    android:id="@+id/etCustomerMobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:hint="Mobile Number"
+                    android:inputType="phone"
+                    android:background="#F5F5F5"
+                    android:padding="10dp"
+                    android:layout_marginBottom="8dp"/>
+
+                <EditText
+                    android:id="@+id/etCustomerEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:hint="Email ID"
+                    android:inputType="textEmailAddress"
+                    android:background="#F5F5F5"
+                    android:padding="10dp"
+                    android:layout_marginBottom="12dp"/>
+
+                <Button
+                    android:id="@+id/btnSaveProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Save Details"
+                    android:backgroundTint="#4CAF50"
+                    android:textColor="#FFFFFF"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- 2. ADVANCE DEVICE CONTROLS SECTION (GRID) -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Advance Device Controls"
+            android:text="Advance Controls"
             android:textStyle="bold"
-            android:textColor="#1A237E"
+            android:textColor="#0F2445"
             android:textSize="18sp"
             android:layout_marginBottom="12dp"/>
 
@@ -81,54 +89,163 @@
             android:columnCount="3"
             android:alignmentMode="alignMargins">
 
-            <!-- Item: Device Lock -->
-            <LinearLayout android:id="@+id/btnControlLock" android:orientation="vertical" android:gravity="center" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_margin="8dp">
-                <FrameLayout android:layout_width="65dp" android:layout_height="65dp">
-                    <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/bg_control_box" android:padding="16dp" android:src="@android:drawable/ic_lock_idle_lock" android:tint="#1A237E"/>
-                    <TextView android:id="@+id/badgeLock" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="OFF" android:textSize="10sp" android:textColor="#FFF" android:background="#F44336" android:layout_gravity="top|end" android:layout_marginTop="-2dp" android:layout_marginEnd="-2dp" android:paddingHorizontal="5dp" android:paddingVertical="2dp"/>
+            <LinearLayout
+                android:id="@+id/btnControlLock"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp">
+
+                <FrameLayout
+                    android:layout_width="65dp"
+                    android:layout_height="65dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_control_box"
+                        android:padding="16dp"
+                        android:src="@android:drawable/ic_lock_idle_lock"
+                        app:tint="#0F2445"/>
+
+                    <TextView
+                        android:id="@+id/badgeLock"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="OFF"
+                        android:textSize="10sp"
+                        android:textColor="#FFF"
+                        android:background="#F44336"
+                        android:layout_gravity="top|end"
+                        android:paddingHorizontal="5dp"
+                        android:paddingVertical="2dp"/>
                 </FrameLayout>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Lock" android:textSize="13sp" android:textColor="#1A237E" android:textStyle="bold" android:layout_marginTop="6dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Device Lock"
+                    android:textSize="12sp"
+                    android:textColor="#0F2445"
+                    android:textStyle="bold"
+                    android:layout_marginTop="6dp"/>
             </LinearLayout>
 
-            <!-- Item: YouTube Lock -->
-            <LinearLayout android:id="@+id/btnControlYoutube" android:orientation="vertical" android:gravity="center" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_margin="8dp">
-                <FrameLayout android:layout_width="65dp" android:layout_height="65dp">
-                    <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/bg_control_box" android:padding="16dp" android:src="@android:drawable/ic_menu_slideshow" android:tint="#1A237E"/>
-                    <TextView android:id="@+id/badgeYoutube" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="OFF" android:textSize="10sp" android:textColor="#FFF" android:background="#F44336" android:layout_gravity="top|end" android:layout_marginTop="-2dp" android:layout_marginEnd="-2dp" android:paddingHorizontal="5dp" android:paddingVertical="2dp"/>
+            <LinearLayout
+                android:id="@+id/btnControlYoutube"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp">
+
+                <FrameLayout
+                    android:layout_width="65dp"
+                    android:layout_height="65dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_control_box"
+                        android:padding="16dp"
+                        android:src="@android:drawable/ic_menu_slideshow"
+                        app:tint="#0F2445"/>
+
+                    <TextView
+                        android:id="@+id/badgeYoutube"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="OFF"
+                        android:textSize="10sp"
+                        android:textColor="#FFF"
+                        android:background="#F44336"
+                        android:layout_gravity="top|end"
+                        android:paddingHorizontal="5dp"
+                        android:paddingVertical="2dp"/>
                 </FrameLayout>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="YouTube" android:textSize="13sp" android:textColor="#1A237E" android:textStyle="bold" android:layout_marginTop="6dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="YouTube"
+                    android:textSize="12sp"
+                    android:textColor="#0F2445"
+                    android:textStyle="bold"
+                    android:layout_marginTop="6dp"/>
             </LinearLayout>
 
-            <!-- Item: Camera Lock -->
-            <LinearLayout android:id="@+id/btnControlCamera" android:orientation="vertical" android:gravity="center" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_margin="8dp">
-                <FrameLayout android:layout_width="65dp" android:layout_height="65dp">
-                    <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/bg_control_box" android:padding="16dp" android:src="@android:drawable/ic_menu_camera" android:tint="#1A237E"/>
-                    <TextView android:id="@+id/badgeCamera" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="OFF" android:textSize="10sp" android:textColor="#FFF" android:background="#F44336" android:layout_gravity="top|end" android:layout_marginTop="-2dp" android:layout_marginEnd="-2dp" android:paddingHorizontal="5dp" android:paddingVertical="2dp"/>
+            <LinearLayout
+                android:id="@+id/btnControlCamera"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp">
+
+                <FrameLayout
+                    android:layout_width="65dp"
+                    android:layout_height="65dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_control_box"
+                        android:padding="16dp"
+                        android:src="@android:drawable/ic_menu_camera"
+                        app:tint="#0F2445"/>
+
+                    <TextView
+                        android:id="@+id/badgeCamera"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="OFF"
+                        android:textSize="10sp"
+                        android:textColor="#FFF"
+                        android:background="#F44336"
+                        android:layout_gravity="top|end"
+                        android:paddingHorizontal="5dp"
+                        android:paddingVertical="2dp"/>
                 </FrameLayout>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Camera" android:textSize="13sp" android:textColor="#1A237E" android:textStyle="bold" android:layout_marginTop="6dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Camera"
+                    android:textSize="12sp"
+                    android:textColor="#0F2445"
+                    android:textStyle="bold"
+                    android:layout_marginTop="6dp"/>
             </LinearLayout>
+
         </GridLayout>
 
-        <View android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:minHeight="40dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:minHeight="40dp"/>
 
-        <!-- 3. UNINSTALL & REMOVE BUTTONS -->
         <Button
             android:id="@+id/btnUninstallSystem"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="52dp"
             android:text="Uninstall Client App"
             android:backgroundTint="#0F2445"
-            android:textColor="@color/white"
+            android:textColor="#FFFFFF"
             android:textStyle="bold"
             android:layout_marginBottom="12dp"/>
 
         <Button
             android:id="@+id/btnRemoveProfile"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="52dp"
             android:text="Remove From Customer List"
             android:backgroundTint="#D32F2F"
-            android:textColor="@color/white"
+            android:textColor="#FFFFFF"
             android:textStyle="bold"
             android:visibility="gone"
             android:layout_marginBottom="24dp"/>
