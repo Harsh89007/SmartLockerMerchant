@@ -16,6 +16,8 @@ class CustomerAdapter(private val customerList: List<CustomerModel>) : RecyclerV
         val tvCustomerName: TextView = itemView.findViewById(R.id.tvCustomerName)
         val tvCustomerPhone: TextView = itemView.findViewById(R.id.tvCustomerPhone)
         val tvImei: TextView = itemView.findViewById(R.id.tvImei)
+        val tvSyncDate: TextView = itemView.findViewById(R.id.tvSyncDate)
+        val tvRemarks: TextView = itemView.findViewById(R.id.tvRemarks)
         val tvStatus: TextView = itemView.findViewById(R.id.tvStatus)
         val btnOpenControl: Button = itemView.findViewById(R.id.btnOpenControl)
     }
@@ -28,25 +30,26 @@ class CustomerAdapter(private val customerList: List<CustomerModel>) : RecyclerV
     override fun onBindViewHolder(holder: CustomerViewHolder, position: Int) {
         val customer = customerList[position]
 
-        // UI में डेटा सेट करना
         holder.tvLoanId.text = "Loan ID: ${customer.loanId}"
         holder.tvCustomerName.text = "👤 ${customer.name}"
         holder.tvCustomerPhone.text = "📞 ${customer.mobile}"
         holder.tvImei.text = "📱 IMEI: ${customer.imei}"
-        
-        // Status कलर
+        holder.tvSyncDate.text = "📅 ${customer.syncDate}"
+        holder.tvRemarks.text = "Remarks: ${customer.remarks}"
+
         holder.tvStatus.text = "Status: ${customer.status}"
-        if (customer.status == "Locked") {
-            holder.tvStatus.setTextColor(Color.parseColor("#D32F2F")) // Red
+        if (customer.status == "Locked" || customer.isDeviceLocked) {
+            holder.tvStatus.text = "Status: Locked"
+            holder.tvStatus.setTextColor(Color.parseColor("#D32F2F"))
         } else {
-            holder.tvStatus.setTextColor(Color.parseColor("#4CAF50")) // Green
+            holder.tvStatus.text = "Status: Unlocked"
+            holder.tvStatus.setTextColor(Color.parseColor("#4CAF50"))
         }
 
-        // Control Panel पर क्लिक करने का लॉजिक
         holder.btnOpenControl.setOnClickListener {
             val context = holder.itemView.context
             val intent = Intent(context, CustomerDetailControlActivity::class.java)
-            intent.putExtra("CUSTOMER_IMEI", customer.imei) // यहाँ असली IMEI पास हो रहा है
+            intent.putExtra("CUSTOMER_IMEI", customer.imei)
             context.startActivity(intent)
         }
     }
