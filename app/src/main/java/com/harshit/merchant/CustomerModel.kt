@@ -11,11 +11,10 @@ data class CustomerModel(
     var syncDate: String = "",
     var status: String = "Unlocked",
     
-    // कंट्रोल्स
+    // Control Flags
     var isDeviceLocked: Boolean = false,
     var isYoutubeLocked: Boolean = false,
+    var isCameraLocked: Boolean = false,
     var isWhatsappLocked: Boolean = false,
-    var isInstagramLocked: Boolean = false,
-    var isPhonePeLocked: Boolean = false,
     var uninstallRequested: Boolean = false
 )
