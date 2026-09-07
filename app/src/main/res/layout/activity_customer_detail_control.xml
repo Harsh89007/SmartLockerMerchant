@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
+    android:background="#F8F9FA"
     android:fillViewport="true">
 
     <LinearLayout
@@ -15,112 +14,50 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Device and App Control"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimary"
-            android:gravity="center"
-            android:layout_marginBottom="16dp"/>
-
-        <!-- Advance Controls Section -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="Advance Controls"
             android:textStyle="bold"
-            android:textColor="@color/colorPrimary"
-            android:textSize="16sp"
-            android:layout_marginBottom="8dp"/>
+            android:textColor="#1A237E"
+            android:textSize="18sp"
+            android:layout_marginBottom="16dp"/>
 
-        <androidx.cardview.widget.CardView
+        <!-- 3-Column Grid for Controls -->
+        <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:cardCornerRadius="12dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@color/white"
-                android:padding="8dp">
+            android:columnCount="3"
+            android:alignmentMode="alignMargins">
 
-                <Switch android:id="@+id/switchLock" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Lock Device" android:padding="12dp" android:textSize="16sp"/>
-                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE"/>
-                <Switch android:id="@+id/switchUnlock" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Unlock Device" android:padding="12dp" android:textSize="16sp"/>
-                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE"/>
-                <Switch android:id="@+id/switchWarningAudio" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Warning Audio" android:padding="12dp" android:textSize="16sp"/>
-                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE"/>
-                <Switch android:id="@+id/switchGetLocation" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Get Location" android:padding="12dp" android:textSize="16sp"/>
+            <!-- Item 1: Device Lock -->
+            <LinearLayout android:id="@+id/btnControlLock" android:orientation="vertical" android:gravity="center" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_margin="8dp">
+                <FrameLayout android:layout_width="65dp" android:layout_height="65dp">
+                    <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/bg_control_box" android:padding="16dp" android:src="@android:drawable/ic_lock_idle_lock" android:tint="#1A237E"/>
+                    <TextView android:id="@+id/badgeLock" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="OFF" android:textSize="10sp" android:textColor="#FFF" android:background="#F44336" android:layout_gravity="top|end" android:layout_marginTop="-2dp" android:layout_marginEnd="-2dp" android:paddingHorizontal="5dp" android:paddingVertical="2dp"/>
+                </FrameLayout>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Lock" android:textSize="13sp" android:textColor="#1A237E" android:textStyle="bold" android:layout_marginTop="6dp"/>
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
 
-        <!-- Phone Controls Section -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Phone Controls"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimary"
-            android:textSize="16sp"
-            android:layout_marginBottom="8dp"/>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:cardCornerRadius="12dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@color/white"
-                android:padding="8dp">
-
-                <Switch android:id="@+id/switchCamera" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Camera Control" android:padding="12dp" android:textSize="16sp"/>
-                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE"/>
-                <Switch android:id="@+id/switchOutgoingCalls" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Outgoing Calls" android:padding="12dp" android:textSize="16sp"/>
-                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE"/>
-                <Switch android:id="@+id/switchFileTransfer" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="File Transfer" android:padding="12dp" android:textSize="16sp"/>
-                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE"/>
-                <Switch android:id="@+id/switchAppInstallation" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="App Installation" android:padding="12dp" android:textSize="16sp"/>
+            <!-- Item 2: YouTube Lock -->
+            <LinearLayout android:id="@+id/btnControlYoutube" android:orientation="vertical" android:gravity="center" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_margin="8dp">
+                <FrameLayout android:layout_width="65dp" android:layout_height="65dp">
+                    <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/bg_control_box" android:padding="16dp" android:src="@android:drawable/ic_menu_slideshow" android:tint="#1A237E"/>
+                    <TextView android:id="@+id/badgeYoutube" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ON" android:textSize="10sp" android:textColor="#FFF" android:background="@drawable/bg_badge_on" android:layout_gravity="top|end" android:layout_marginTop="-2dp" android:layout_marginEnd="-2dp" android:paddingHorizontal="5dp" android:paddingVertical="2dp"/>
+                </FrameLayout>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="YouTube" android:textSize="13sp" android:textColor="#1A237E" android:textStyle="bold" android:layout_marginTop="6dp"/>
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
 
-        <!-- App Controls Section -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="App Controls (Locks)"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimary"
-            android:textSize="16sp"
-            android:layout_marginBottom="8dp"/>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            app:cardCornerRadius="12dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@color/white"
-                android:padding="8dp">
-
-                <Switch android:id="@+id/switchWhatsapp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="WhatsApp Lock" android:padding="12dp" android:textSize="16sp"/>
-                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE"/>
-                <Switch android:id="@+id/switchTelegram" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Telegram Lock" android:padding="12dp" android:textSize="16sp"/>
-                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE"/>
-                <Switch android:id="@+id/switchChrome" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Chrome Lock" android:padding="12dp" android:textSize="16sp"/>
-                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE"/>
-                <Switch android:id="@+id/switchYoutube" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Youtube Lock" android:padding="12dp" android:textSize="16sp"/>
-                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE"/>
-                <Switch android:id="@+id/switchInstagram" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Instagram Lock" android:padding="12dp" android:textSize="16sp"/>
-                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE"/>
-                <Switch android:id="@+id/switchPhonepe" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="PhonePe Lock" android:padding="12dp" android:textSize="16sp"/>
+            <!-- Item 3: Camera Lock -->
+            <LinearLayout android:id="@+id/btnControlCamera" android:orientation="vertical" android:gravity="center" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_margin="8dp">
+                <FrameLayout android:layout_width="65dp" android:layout_height="65dp">
+                    <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/bg_control_box" android:padding="16dp" android:src="@android:drawable/ic_menu_camera" android:tint="#1A237E"/>
+                    <TextView android:id="@+id/badgeCamera" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ON" android:textSize="10sp" android:textColor="#FFF" android:background="@drawable/bg_badge_on" android:layout_gravity="top|end" android:layout_marginTop="-2dp" android:layout_marginEnd="-2dp" android:paddingHorizontal="5dp" android:paddingVertical="2dp"/>
+                </FrameLayout>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Camera" android:textSize="13sp" android:textColor="#1A237E" android:textStyle="bold" android:layout_marginTop="6dp"/>
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+
+        </GridLayout>
+
+        <!-- Spacer -->
+        <View android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:minHeight="50dp"/>
 
         <!-- UNINSTALL BUTTON -->
         <Button
@@ -128,10 +65,23 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:text="Uninstall"
-            android:backgroundTint="#8B0000"
+            android:backgroundTint="#0F2445"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- REMOVE PROFILE BUTTON (छुपा रहेगा, अनइंस्टॉल के बाद दिखेगा) -->
+        <Button
+            android:id="@+id/btnRemoveProfile"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="Remove From Customer List"
+            android:backgroundTint="#D32F2F"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:visibility="gone"
             android:layout_marginBottom="30dp"/>
 
     </LinearLayout>
